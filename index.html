@@ -815,6 +815,10 @@
       line-height: 1.75;
       max-width: 42ch;
     }
+    .section-head-solo {
+      grid-template-columns: 1fr;
+      margin-bottom: clamp(28px, 5vw, 44px);
+    }
     .reveal {
       opacity: 0;
       transform: translateY(28px);
@@ -827,16 +831,21 @@
     .work-list { border-top: 1px solid var(--line); }
     .work-item {
       display: grid;
-      grid-template-columns: 1.1fr 1fr auto;
-      gap: 24px;
-      align-items: start;
-      padding: 34px 0;
+      gap: 12px;
+      padding: 30px 0;
       border-bottom: 1px solid var(--line);
       transition: background 0.35s ease;
     }
     .work-item:hover { background: color-mix(in srgb, var(--fg) 2.5%, transparent); }
+    .work-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px 28px;
+    }
     .work-item h3 {
-      margin: 0 0 10px;
+      margin: 0 0 8px;
       font-family: var(--display);
       font-size: clamp(1.35rem, 2.6vw, 1.85rem);
       font-weight: 700;
@@ -853,23 +862,28 @@
     }
     .work-item > p {
       margin: 0;
+      max-width: 72ch;
       color: var(--fg-dim);
       line-height: 1.7;
     }
-    .work-result { text-align: right; min-width: 110px; }
+    .work-result {
+      text-align: right;
+      flex: none;
+    }
     .work-result strong {
       display: block;
       font-family: var(--display);
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       letter-spacing: -0.04em;
+      line-height: 1.1;
     }
     .work-result span {
       color: var(--fg-mute);
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
-    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
     .tag {
       padding: 5px 10px;
       border: 1px solid var(--line);
@@ -1202,29 +1216,30 @@
     /* ---------- Skills ---------- */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 1px;
       background: var(--line);
       border: 1px solid var(--line);
     }
     .skill-block {
       background: var(--bg);
-      padding: clamp(24px, 4vw, 36px);
+      padding: clamp(20px, 2.8vw, 28px);
       transition: background 0.3s ease;
+      min-width: 0;
     }
     .skill-block:hover { background: var(--bg-elevated); }
     .skill-block h3 {
-      margin: 0 0 10px;
+      margin: 0 0 8px;
       font-family: var(--display);
-      font-size: 1.35rem;
+      font-size: clamp(1.1rem, 1.6vw, 1.3rem);
       font-weight: 700;
       letter-spacing: -0.03em;
     }
     .skill-block p {
-      margin: 0 0 22px;
+      margin: 0 0 16px;
       color: var(--fg-mute);
-      font-size: 0.92rem;
-      line-height: 1.6;
+      font-size: 0.86rem;
+      line-height: 1.55;
     }
     .skill-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
     .skill-pill {
@@ -1352,7 +1367,7 @@
       font-weight: 700;
       letter-spacing: -0.03em;
     }
-    .skill-block.span-2 {
+    .skill-block.span-full {
       grid-column: 1 / -1;
     }
 
@@ -1560,10 +1575,12 @@
       .section-head,
       .about-stage,
       .hike-block,
-      .skills-grid,
       .timeline { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
       .coursework-panel { grid-template-columns: 1fr; }
-      .work-principles { grid-template-columns: 1fr; }
+      .work-principles { grid-template-columns: 1fr 1fr; }
+      .work-top { flex-direction: column; align-items: flex-start; }
+      .work-result { text-align: left; }
       .about-panel,
       .journey-3d {
         transform: none !important;
@@ -1604,8 +1621,6 @@
       .hero-actions,
       .hero-socials { justify-content: center; }
       .availability { justify-content: center; }
-      .work-item { grid-template-columns: 1fr; }
-      .work-result { text-align: left; margin-top: 8px; }
       .hike-block { grid-template-columns: 1fr; }
       .hike-gallery {
         grid-template-columns: 1fr 1fr;
@@ -1622,7 +1637,8 @@
       .container, .hero-grid { width: min(100% - 28px, var(--max)); }
       .theme-trigger span { display: none; }
       .nav-cta { display: none; }
-      .work-item { grid-template-columns: 1fr; gap: 10px; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .work-principles { grid-template-columns: 1fr; }
       .hike-strip { grid-template-columns: 1fr 1fr; }
       .hero { padding: 108px 0 52px; }
       .hero-portrait { width: min(100%, 300px); }
@@ -1917,83 +1933,109 @@
 
     <section class="section" id="work" aria-labelledby="workTitle">
       <div class="container">
-        <div class="section-head">
-          <div class="reveal">
+        <div class="section-head section-head-solo reveal">
+          <div>
             <h2 class="section-title" id="workTitle">Projects</h2>
           </div>
         </div>
 
         <div class="work-list">
           <article class="work-item reveal">
-            <div>
-              <h3>Multimodal backchannel prediction</h3>
-              <p class="work-meta"><span>MSc dissertation · CVSSP</span><span>Ongoing · 2026</span></p>
-              <div class="tags">
-                <span class="tag">BERT</span><span class="tag">HuBERT</span><span class="tag">VideoMAE</span><span class="tag">FLAME</span><span class="tag">HTCondor</span>
+            <div class="work-top">
+              <div>
+                <h3>Multimodal backchannel prediction</h3>
+                <p class="work-meta"><span>MSc dissertation · CVSSP</span><span>Ongoing · 2026</span></p>
               </div>
+              <div class="work-result"><strong>Ongoing</strong><span>Dissertation</span></div>
             </div>
-            <p>End-to-end multimodal classifier for listener behaviour (nods, head shakes, posture, gaze, eyebrow raises) from audio, video, transcript and FLAME features on RealTalk, covering data readiness through modelling and evaluation on a GPU cluster.</p>
-            <div class="work-result"><strong>Ongoing</strong><span>Dissertation</span></div>
+            <p>End-to-end multimodal classifier for listener behaviour on RealTalk, from data readiness through modelling and evaluation on a GPU cluster using audio, video, transcript and FLAME features.</p>
+            <div class="tags">
+              <span class="tag">BERT</span><span class="tag">HuBERT</span><span class="tag">VideoMAE</span><span class="tag">FLAME</span><span class="tag">HTCondor</span>
+            </div>
           </article>
 
           <article class="work-item reveal" style="--delay:.05s">
-            <div>
-              <h3>Action recognition + localisation</h3>
-              <p class="work-meta"><span>Vision transformers</span><span>Feb 2026</span></p>
-              <div class="tags">
-                <span class="tag">TimeSformer</span><span class="tag">VideoMAE</span><span class="tag">ViViT</span><span class="tag">Ablations</span>
+            <div class="work-top">
+              <div>
+                <h3>Action recognition + localisation</h3>
+                <p class="work-meta"><span>Vision transformers</span><span>Feb 2026</span></p>
               </div>
+              <div class="work-result"><strong>91.49%</strong><span>Top-1 accuracy</span></div>
             </div>
-            <p>Compared TimeSformer, VideoMAE and ViViT on HMDB, then extended the strongest model to spatio-temporal localisation with controlled ablations, including a learning-rate scheduler study where cosine annealing performed best.</p>
-            <div class="work-result"><strong>91.49%</strong><span>Top-1 accuracy</span></div>
+            <p>Compared TimeSformer, VideoMAE and ViViT on HMDB, then pushed the strongest model into spatio-temporal localisation with controlled ablations. Cosine annealing won the learning-rate study.</p>
+            <div class="tags">
+              <span class="tag">TimeSformer</span><span class="tag">VideoMAE</span><span class="tag">ViViT</span><span class="tag">Ablations</span>
+            </div>
           </article>
 
           <article class="work-item reveal" style="--delay:.08s">
-            <div>
-              <h3>Indian Sign Language recognition</h3>
-              <p class="work-meta"><span>Jan to May 2024</span><span>ICCMC 2025</span></p>
-              <div class="tags">
-                <span class="tag">BERT</span><span class="tag">REST API</span><span class="tag">Real-time ML</span>
+            <div class="work-top">
+              <div>
+                <h3>Indian Sign Language recognition</h3>
+                <p class="work-meta"><span>Jan to May 2024</span><span>ICCMC 2025</span></p>
               </div>
+              <div class="work-result"><a class="tag" href="https://ieeexplore.ieee.org/document/11140744/" target="_blank" rel="noreferrer">IEEE →</a></div>
             </div>
-            <p>Built a real-time ISL translation feature with a BERT transformer and REST API, from prototype to a working tool and an IEEE conference publication.</p>
-            <div class="work-result"><a class="tag" href="https://ieeexplore.ieee.org/document/11140744/" target="_blank" rel="noreferrer">IEEE →</a></div>
+            <p>Real-time ISL translation with BERT and a REST API, taken from prototype to a working tool and an IEEE conference paper.</p>
+            <div class="tags">
+              <span class="tag">BERT</span><span class="tag">REST API</span><span class="tag">Real-time ML</span>
+            </div>
           </article>
 
           <article class="work-item reveal" style="--delay:.1s">
-            <div>
-              <h3>Sarcasm across English varieties</h3>
-              <p class="work-meta"><span>NLP · LLMs</span><span>Feb 2026</span></p>
-              <div class="tags">
-                <span class="tag">mBERT</span><span class="tag">LoRA</span><span class="tag">LIME</span><span class="tag">Benchmarking</span>
+            <div class="work-top">
+              <div>
+                <h3>Sarcasm across English varieties</h3>
+                <p class="work-meta"><span>NLP · LLMs</span><span>Feb 2026</span></p>
               </div>
+              <div class="work-result"><strong>3</strong><span>Varieties tested</span></div>
             </div>
-            <p>Compared classical baselines, fine-tuned transformers and LoRA-adapted LLMs across British, Australian and Indian English, owning training, inference benchmarking and LIME-based error analysis.</p>
-            <div class="work-result"><strong>3</strong><span>Varieties tested</span></div>
+            <p>Benchmarked classical models, fine-tuned transformers and LoRA-adapted LLMs across British, Australian and Indian English, with LIME-based error analysis.</p>
+            <div class="tags">
+              <span class="tag">mBERT</span><span class="tag">LoRA</span><span class="tag">LIME</span><span class="tag">Benchmarking</span>
+            </div>
           </article>
 
           <article class="work-item reveal" style="--delay:.12s">
-            <div>
-              <h3>Vehicle re-identification on VeRi</h3>
-              <p class="work-meta"><span>Metric learning</span><span>14 experiments · 2026</span></p>
-              <div class="tags">
-                <span class="tag">ResNet-50</span><span class="tag">GPU cluster</span><span class="tag">IEEE-style report</span>
+            <div class="work-top">
+              <div>
+                <h3>Vehicle re-identification on VeRi</h3>
+                <p class="work-meta"><span>Metric learning</span><span>14 experiments · 2026</span></p>
               </div>
+              <div class="work-result"><strong>61.3%</strong><span>mAP</span></div>
             </div>
-            <p>Trained and tuned a ResNet-50 re-identification pipeline across 14 tracked experiments on a GPU cluster, documented in an IEEE-style report.</p>
-            <div class="work-result"><strong>61.3%</strong><span>mAP</span></div>
+            <p>ResNet-50 re-identification pipeline tuned across 14 tracked GPU-cluster experiments, written up in an IEEE-style report.</p>
+            <div class="tags">
+              <span class="tag">ResNet-50</span><span class="tag">GPU cluster</span><span class="tag">IEEE-style report</span>
+            </div>
           </article>
 
           <article class="work-item reveal" style="--delay:.14s">
-            <div>
-              <h3>StreetSmart</h3>
-              <p class="work-meta"><span>Soonami Venturethon</span><span>2025</span></p>
-              <div class="tags">
-                <span class="tag">AI</span><span class="tag">Walkability</span><span class="tag">Product</span><span class="tag">Pitch</span>
+            <div class="work-top">
+              <div>
+                <h3>StreetSmart</h3>
+                <p class="work-meta"><span>Soonami Venturethon</span><span>2025</span></p>
               </div>
+              <div class="work-result"><strong>Selected</strong><span>120+ entries</span></div>
             </div>
             <p>AI for walkable cities. Selected from 120+ submissions, then built and pitched with a global team.</p>
-            <div class="work-result"><strong>Selected</strong><span>120+ entries</span></div>
+            <div class="tags">
+              <span class="tag">AI</span><span class="tag">Walkability</span><span class="tag">Product</span><span class="tag">Pitch</span>
+            </div>
+          </article>
+
+          <article class="work-item reveal" style="--delay:.16s">
+            <div class="work-top">
+              <div>
+                <h3>Urban mobility &amp; EV safety analytics</h3>
+                <p class="work-meta"><span>Tel Aviv University · International Summer Programme</span></p>
+              </div>
+              <div class="work-result"><strong>TAU</strong><span>Summer programme</span></div>
+            </div>
+            <p>Analysed urban mobility and EV accident data with Python, Pandas, NumPy and OSMnx to map spatial patterns for safer city planning, as part of collaborative research on data-driven urban decisions.</p>
+            <div class="tags">
+              <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">OSMnx</span><span class="tag">Urban analytics</span>
+            </div>
           </article>
         </div>
       </div>
@@ -2001,20 +2043,17 @@
 
     <section class="section" id="skills" aria-labelledby="skillsTitle">
       <div class="container">
-        <div class="section-head">
-          <div class="reveal">
+        <div class="section-head section-head-solo reveal">
+          <div>
             <p class="eyebrow">Toolkit</p>
             <h2 class="section-title" id="skillsTitle">How I build.</h2>
           </div>
-          <p class="section-intro reveal" style="--delay:.08s">
-            Multimodal AI skills, a practical engineering stack, and habits that keep the work honest.
-          </p>
         </div>
 
         <div class="skills-grid reveal">
           <div class="skill-block">
             <h3>AI + ML</h3>
-            <p>Models across modalities: language, speech, video and fusion.</p>
+            <p>Language, speech, video and multimodal models.</p>
             <div class="skill-cloud">
               <span class="skill-pill">PyTorch</span>
               <span class="skill-pill">Hugging Face</span>
@@ -2033,7 +2072,7 @@
           </div>
           <div class="skill-block">
             <h3>Applied AI</h3>
-            <p>The practical side of building, testing and improving AI systems.</p>
+            <p>Building, testing and improving systems that hold up in practice.</p>
             <div class="skill-cloud">
               <span class="skill-pill">LLM applications</span>
               <span class="skill-pill">AI agents</span>
@@ -2047,8 +2086,22 @@
             </div>
           </div>
           <div class="skill-block">
+            <h3>Data analytics</h3>
+            <p>Finding the signal in data and turning it into clear decisions.</p>
+            <div class="skill-cloud">
+              <span class="skill-pill">Pandas</span>
+              <span class="skill-pill">NumPy</span>
+              <span class="skill-pill">OSMnx</span>
+              <span class="skill-pill">Exploratory analysis</span>
+              <span class="skill-pill">Geospatial data</span>
+              <span class="skill-pill">Urban analytics</span>
+              <span class="skill-pill">Data visualisation</span>
+              <span class="skill-pill">Evidence-based decisions</span>
+            </div>
+          </div>
+          <div class="skill-block">
             <h3>Engineering</h3>
-            <p>Enough product engineering to turn research into usable systems.</p>
+            <p>Turning research into systems people can actually use.</p>
             <div class="skill-cloud">
               <span class="skill-pill">Python</span>
               <span class="skill-pill">C++</span>
@@ -2062,9 +2115,9 @@
               <span class="skill-pill">HTCondor</span>
             </div>
           </div>
-          <div class="skill-block span-2">
+          <div class="skill-block span-full">
             <h3>How I work</h3>
-            <p>Four habits I try to keep, from lab to demos.</p>
+            <p>Habits that keep the work honest, from lab to demos.</p>
             <ul class="work-principles">
               <li>
                 <strong>Clean data first</strong>
