@@ -870,6 +870,9 @@
     .work-result {
       text-align: right;
       flex: none;
+      display: grid;
+      gap: 8px;
+      justify-items: end;
     }
     .work-result strong {
       display: block;
@@ -883,6 +886,9 @@
       font-size: 0.7rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
+    }
+    .work-result .tag {
+      margin-top: 2px;
     }
     .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
     .tag {
@@ -1581,7 +1587,7 @@
       .coursework-panel { grid-template-columns: 1fr; }
       .work-principles { grid-template-columns: 1fr 1fr; }
       .work-top { flex-direction: column; align-items: flex-start; }
-      .work-result { text-align: left; }
+      .work-result { text-align: left; justify-items: start; }
       .about-panel,
       .journey-3d {
         transform: none !important;
@@ -1963,9 +1969,9 @@
               </div>
               <div class="work-result"><strong>3</strong><span>Varieties tested</span></div>
             </div>
-            <p>Designed and evaluated NLP models for sarcasm detection across British, Australian and Indian English, spanning classical machine learning, transformer models and LoRA adapted large language models. Owned the training pipeline, benchmarking, interpretability work and detailed error analysis.</p>
+            <p>Sarcasm detectors trained on one variety of English often fail on others, and an accuracy score alone does not explain why. This project compared classical baselines, fine tuned mBERT and LoRA adapted LLMs on the BESSTIE benchmark across British, Australian and Indian English. LIME based error analysis was used to surface which words the models relied on when they failed.</p>
             <div class="tags">
-              <span class="tag">Python</span><span class="tag">Transformers</span><span class="tag">BERT</span><span class="tag">LoRA</span><span class="tag">LLMs</span><span class="tag">NLP</span><span class="tag">LIME</span><span class="tag">Evaluation</span>
+              <span class="tag">Python</span><span class="tag">Transformers</span><span class="tag">mBERT</span><span class="tag">LoRA</span><span class="tag">LLMs</span><span class="tag">BESSTIE</span><span class="tag">LIME</span><span class="tag">NLP</span>
             </div>
           </article>
 
@@ -2005,7 +2011,7 @@
               </div>
               <div class="work-result"><strong>61.3%</strong><span>mAP</span></div>
             </div>
-            <p>Built and tuned a ResNet 50 vehicle re identification pipeline on the VeRi dataset, running 14 tracked experiments on a GPU cluster to improve retrieval performance. Owned training, evaluation and documentation in an IEEE style report covering metric learning choices, ablations and final mAP results.</p>
+            <p>Built and tuned a ResNet 50 vehicle re identification pipeline on the VeRi dataset, running 14 tracked experiments on a GPU cluster to improve retrieval performance. Covered training, evaluation and documentation in an IEEE style report, including metric learning choices, ablations and final mAP results.</p>
             <div class="tags">
               <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">ResNet 50</span><span class="tag">Metric learning</span><span class="tag">Computer vision</span><span class="tag">GPU cluster</span><span class="tag">Evaluation</span>
             </div>
@@ -2031,7 +2037,11 @@
                 <h3>Smart cities data analytics</h3>
                 <p class="work-meta"><span>Tel Aviv University · International Summer Programme</span></p>
               </div>
-              <div class="work-result"><strong>TAU</strong><span>Summer programme</span></div>
+              <div class="work-result">
+                <strong>TAU</strong>
+                <span>Summer programme</span>
+                <a class="tag" href="https://github.com/thelivingdead/ElectricVehicleAccidentAnalysisIsraelData2018-2019" target="_blank" rel="noreferrer">GitHub →</a>
+              </div>
             </div>
             <p>Analysed electric vehicle accident data with Python, Pandas, NumPy and OSMnx to uncover spatial patterns and mobility trends that can support safer, more sustainable urban planning. Contributed to collaborative research on data driven decision making for future smart cities.</p>
             <div class="tags">
@@ -2045,7 +2055,11 @@
                 <h3>Automobile data analytics</h3>
                 <p class="work-meta"><span>Microsoft Engage</span></p>
               </div>
-              <div class="work-result"><strong>Engage</strong><span>Microsoft</span></div>
+              <div class="work-result">
+                <strong>Engage</strong>
+                <span>Microsoft</span>
+                <a class="tag" href="https://github.com/thelivingdead/automobile-pred" target="_blank" rel="noreferrer">GitHub →</a>
+              </div>
             </div>
             <p>Performed exploratory analysis on an automotive dataset, engineered predictive features and built a machine learning web app for vehicle price prediction with Streamlit. Focused on turning raw data into clear insights through visualisation and predictive modelling.</p>
             <div class="tags">
@@ -2059,7 +2073,11 @@
                 <h3>Carbon footprint tracker</h3>
                 <p class="work-meta"><span>HackRice11</span></p>
               </div>
-              <div class="work-result"><strong>HackRice</strong><span>Hackathon</span></div>
+              <div class="work-result">
+                <strong>HackRice</strong>
+                <span>Hackathon</span>
+                <a class="tag" href="https://devpost.com/software/carbon-footprint-ticker" target="_blank" rel="noreferrer">Devpost →</a>
+              </div>
             </div>
             <p>Built a web app that estimates personal carbon emissions with Firebase and interactive visualisations. Designed features that encourage more sustainable choices through personalised feedback and an educational quiz, working within a multidisciplinary team.</p>
             <div class="tags">
