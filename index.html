@@ -898,6 +898,46 @@
       font-size: 0.72rem;
       letter-spacing: 0.04em;
     }
+    .work-flow {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 0;
+      margin: 6px 0 2px;
+      max-width: 920px;
+    }
+    .work-flow-step {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      padding: 8px 12px;
+      border: 1px solid var(--line-strong);
+      background: color-mix(in srgb, var(--fg) 3%, var(--bg));
+      color: var(--fg);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      line-height: 1.25;
+      text-align: center;
+    }
+    .work-flow-arrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      color: var(--fg-mute);
+      font-size: 0.85rem;
+      flex: none;
+    }
+    .work-flow-note {
+      margin: 0 0 2px;
+      color: var(--fg-mute);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
 
     /* ---------- About (cinematic) ---------- */
     .about-stage {
@@ -1956,6 +1996,18 @@
               <div class="work-result"><strong>Ongoing</strong><span>Dissertation</span></div>
             </div>
             <p>Building an end to end multimodal AI system that predicts conversational backchannel behaviours such as head nods, gaze shifts and facial expressions. The model combines video, transcripts and FLAME facial representations from the RealTalk dataset. The pipeline covers data preparation, feature extraction, multimodal fusion, evaluation and large scale GPU experimentation.</p>
+            <p class="work-flow-note">Pipeline</p>
+            <div class="work-flow" aria-label="Multimodal project pipeline">
+              <span class="work-flow-step">RealTalk data</span>
+              <span class="work-flow-arrow" aria-hidden="true">→</span>
+              <span class="work-flow-step">Video · Text · FLAME</span>
+              <span class="work-flow-arrow" aria-hidden="true">→</span>
+              <span class="work-flow-step">Multimodal fusion</span>
+              <span class="work-flow-arrow" aria-hidden="true">→</span>
+              <span class="work-flow-step">Backchannel prediction</span>
+              <span class="work-flow-arrow" aria-hidden="true">→</span>
+              <span class="work-flow-step">GPU evaluation</span>
+            </div>
             <div class="tags">
               <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">Transformers</span><span class="tag">VideoMAE</span><span class="tag">BERT</span><span class="tag">FLAME</span><span class="tag">Multimodal AI</span><span class="tag">Computer vision</span><span class="tag">HTCondor</span><span class="tag">Evaluation</span>
             </div>
@@ -1970,6 +2022,16 @@
               <div class="work-result"><strong>3</strong><span>Varieties tested</span></div>
             </div>
             <p>Sarcasm detectors trained on one variety of English often fail on others, and an accuracy score alone does not explain why. This project compared classical baselines, fine tuned mBERT and LoRA adapted LLMs on the BESSTIE benchmark across British, Australian and Indian English. LIME based error analysis was used to surface which words the models relied on when they failed.</p>
+            <p class="work-flow-note">Approach</p>
+            <div class="work-flow" aria-label="Sarcasm project approach">
+              <span class="work-flow-step">BESSTIE varieties</span>
+              <span class="work-flow-arrow" aria-hidden="true">→</span>
+              <span class="work-flow-step">Baselines · mBERT · LoRA</span>
+              <span class="work-flow-arrow" aria-hidden="true">→</span>
+              <span class="work-flow-step">Cross variety eval</span>
+              <span class="work-flow-arrow" aria-hidden="true">→</span>
+              <span class="work-flow-step">LIME error analysis</span>
+            </div>
             <div class="tags">
               <span class="tag">Python</span><span class="tag">Transformers</span><span class="tag">mBERT</span><span class="tag">LoRA</span><span class="tag">LLMs</span><span class="tag">BESSTIE</span><span class="tag">LIME</span><span class="tag">NLP</span>
             </div>
