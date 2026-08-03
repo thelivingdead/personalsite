@@ -134,6 +134,7 @@
     a { color: inherit; text-decoration: none; }
     button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
     img { display: block; max-width: 100%; }
+    picture { display: block; width: 100%; height: 100%; }
     :focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; }
 
     .skip-link {
@@ -1000,11 +1001,14 @@
       box-shadow: var(--depth-shadow);
     }
     .journey-3d:hover { transform: rotateY(1deg) translateZ(16px); }
+    .journey-3d picture,
     .journey-3d img {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
+    }
+    .journey-3d img {
       object-fit: cover;
       filter: none;
       opacity: 0.72;
@@ -1820,7 +1824,11 @@
             <div class="portrait-plane" aria-hidden="true"></div>
             <div class="portrait-plane portrait-plane-b" aria-hidden="true"></div>
             <div class="portrait-frame">
-              <img src="media/final/profile.jpg" alt="Portrait of Divya Bisht" width="900" height="1125">
+              <picture>
+                <source srcset="media/final/profile.avif" type="image/avif">
+                <source srcset="media/final/profile.webp" type="image/webp">
+                <img src="media/final/profile.webp" alt="Portrait of Divya Bisht" width="900" height="1125">
+              </picture>
             </div>
           </div>
         </aside>
@@ -1881,7 +1889,11 @@
           </article>
 
           <aside class="journey-3d tilt-3d reveal" style="--delay:.1s" aria-label="Academic path">
-            <img src="media/final/walks/mountains.jpg" alt="Snowy mountain ranges above the clouds" width="900" height="1200" loading="lazy">
+            <picture>
+              <source srcset="media/final/walks/mountains.avif" type="image/avif">
+              <source srcset="media/final/walks/mountains.webp" type="image/webp">
+              <img src="media/final/walks/mountains.webp" alt="Snowy mountain ranges above the clouds" width="900" height="1200" loading="lazy">
+            </picture>
             <div class="journey-body">
               <p class="eyebrow" style="color: rgba(255,255,255,0.55)">Education</p>
               <h3 class="journey-title">Academia.</h3>
@@ -2329,41 +2341,85 @@
 
             <div class="hike-gallery reveal" style="--delay:.08s">
               <figure>
-                <img src="media/final/walks/mountains.jpg" alt="Mountain ranges from a hike in India" width="800" height="1000" loading="lazy">
+                <picture>
+                  <source srcset="media/final/walks/mountains.avif" type="image/avif">
+                  <source srcset="media/final/walks/mountains.webp" type="image/webp">
+                  <img src="media/final/walks/mountains.webp" alt="Mountain ranges from a hike in India" width="800" height="1000" loading="lazy">
+                </picture>
               </figure>
               <figure>
-                <img src="media/final/walks/guildford-sunset.jpg" alt="Sunset from a Guildford walk" width="800" height="1000" loading="lazy">
+                <picture>
+                  <source srcset="media/final/walks/guildford-sunset.avif" type="image/avif">
+                  <source srcset="media/final/walks/guildford-sunset.webp" type="image/webp">
+                  <img src="media/final/walks/guildford-sunset.webp" alt="Sunset from a Guildford walk" width="800" height="1000" loading="lazy">
+                </picture>
               </figure>
               <figure class="camp-shot">
-                <img src="media/final/walks/camping.jpg" alt="Camping tent view with hiking shoes toward the mountains" width="800" height="1000" loading="lazy">
+                <picture>
+                  <source srcset="media/final/walks/camping.avif" type="image/avif">
+                  <source srcset="media/final/walks/camping.webp" type="image/webp">
+                  <img src="media/final/walks/camping.webp" alt="Camping tent view with hiking shoes toward the mountains" width="800" height="1000" loading="lazy">
+                </picture>
               </figure>
             </div>
           </div>
 
           <div class="hike-strip reveal">
             <figure>
-              <img src="media/final/walks/snow.jpg" alt="Snowy walk in India" width="800" height="600" loading="lazy">
+              <picture>
+                <source srcset="media/final/walks/snow.avif" type="image/avif">
+                <source srcset="media/final/walks/snow.webp" type="image/webp">
+                <img src="media/final/walks/snow.webp" alt="Snowy walk in India" width="800" height="600" loading="lazy">
+              </picture>
             </figure>
             <figure>
-              <img src="media/final/walks/india-dawn.jpg" alt="Mountains at dawn in India" width="800" height="600" loading="lazy">
+              <picture>
+                <source srcset="media/final/walks/india-dawn.avif" type="image/avif">
+                <source srcset="media/final/walks/india-dawn.webp" type="image/webp">
+                <img src="media/final/walks/india-dawn.webp" alt="Mountains at dawn in India" width="800" height="600" loading="lazy">
+              </picture>
             </figure>
             <figure>
-              <img src="media/final/walks/london-walk.jpg" alt="Evening walk by the Thames in London" width="800" height="600" loading="lazy">
+              <picture>
+                <source srcset="media/final/walks/london-walk.avif" type="image/avif">
+                <source srcset="media/final/walks/london-walk.webp" type="image/webp">
+                <img src="media/final/walks/london-walk.webp" alt="Evening walk by the Thames in London" width="800" height="600" loading="lazy">
+              </picture>
             </figure>
             <figure>
-              <img src="media/final/walks/guildford-cliffs.jpg" alt="Sunset cliff walk in Guildford" width="800" height="600" loading="lazy">
+              <picture>
+                <source srcset="media/final/walks/guildford-cliffs.avif" type="image/avif">
+                <source srcset="media/final/walks/guildford-cliffs.webp" type="image/webp">
+                <img src="media/final/walks/guildford-cliffs.webp" alt="Sunset cliff walk in Guildford" width="800" height="600" loading="lazy">
+              </picture>
             </figure>
             <figure>
-              <img src="media/final/walks/guildford-moon.jpg" alt="Twilight walk with crescent moon" width="800" height="600" loading="lazy">
+              <picture>
+                <source srcset="media/final/walks/guildford-moon.avif" type="image/avif">
+                <source srcset="media/final/walks/guildford-moon.webp" type="image/webp">
+                <img src="media/final/walks/guildford-moon.webp" alt="Twilight walk with crescent moon" width="800" height="600" loading="lazy">
+              </picture>
             </figure>
             <figure>
-              <img src="media/final/walks/guildford-trail.jpg" alt="Grassy trail overlooking the town" width="800" height="600" loading="lazy">
+              <picture>
+                <source srcset="media/final/walks/guildford-trail.avif" type="image/avif">
+                <source srcset="media/final/walks/guildford-trail.webp" type="image/webp">
+                <img src="media/final/walks/guildford-trail.webp" alt="Grassy trail overlooking the town" width="800" height="600" loading="lazy">
+              </picture>
             </figure>
             <figure>
-              <img src="media/final/walks/guildford-evening.jpg" alt="Evening walk with moon over Guildford" width="800" height="600" loading="lazy">
+              <picture>
+                <source srcset="media/final/walks/guildford-evening.avif" type="image/avif">
+                <source srcset="media/final/walks/guildford-evening.webp" type="image/webp">
+                <img src="media/final/walks/guildford-evening.webp" alt="Evening walk with moon over Guildford" width="800" height="600" loading="lazy">
+              </picture>
             </figure>
             <figure>
-              <img src="media/final/walks/cathedral.jpg" alt="Quiet cathedral interior on a walk" width="800" height="600" loading="lazy">
+              <picture>
+                <source srcset="media/final/walks/cathedral.avif" type="image/avif">
+                <source srcset="media/final/walks/cathedral.webp" type="image/webp">
+                <img src="media/final/walks/cathedral.webp" alt="Quiet cathedral interior on a walk" width="800" height="600" loading="lazy">
+              </picture>
             </figure>
           </div>
 
@@ -2378,35 +2434,67 @@
           <div class="interest-split">
             <div class="poster-wall cinema-stage reveal" aria-label="Favourite films, anime and tech events">
               <article class="poster">
-                <img src="media/final/interests/star-wars.jpg" alt="Star Wars inspired cinematic artwork" width="600" height="900" loading="lazy">
+                <picture>
+                  <source srcset="media/final/interests/star-wars.avif" type="image/avif">
+                  <source srcset="media/final/interests/star-wars.webp" type="image/webp">
+                  <img src="media/final/interests/star-wars.webp" alt="Star Wars inspired cinematic artwork" width="600" height="900" loading="lazy">
+                </picture>
                 <div class="poster-meta"><p class="eyebrow">Film</p><h3>Star Wars</h3></div>
               </article>
               <article class="poster">
-                <img src="media/final/interests/batman.jpg" alt="Batman inspired gothic city artwork" width="600" height="900" loading="lazy">
+                <picture>
+                  <source srcset="media/final/interests/batman.avif" type="image/avif">
+                  <source srcset="media/final/interests/batman.webp" type="image/webp">
+                  <img src="media/final/interests/batman.webp" alt="Batman inspired gothic city artwork" width="600" height="900" loading="lazy">
+                </picture>
                 <div class="poster-meta"><p class="eyebrow">Film</p><h3>Batman</h3></div>
               </article>
               <article class="poster">
-                <img src="media/final/interests/lotr.jpg" alt="Lord of the Rings inspired fantasy landscape" width="600" height="900" loading="lazy">
+                <picture>
+                  <source srcset="media/final/interests/lotr.avif" type="image/avif">
+                  <source srcset="media/final/interests/lotr.webp" type="image/webp">
+                  <img src="media/final/interests/lotr.webp" alt="Lord of the Rings inspired fantasy landscape" width="600" height="900" loading="lazy">
+                </picture>
                 <div class="poster-meta"><p class="eyebrow">Film</p><h3>Lord of the Rings</h3></div>
               </article>
               <article class="poster">
-                <img src="media/final/interests/got.jpg" alt="Game of Thrones inspired throne room artwork" width="600" height="900" loading="lazy">
+                <picture>
+                  <source srcset="media/final/interests/got.avif" type="image/avif">
+                  <source srcset="media/final/interests/got.webp" type="image/webp">
+                  <img src="media/final/interests/got.webp" alt="Game of Thrones inspired throne room artwork" width="600" height="900" loading="lazy">
+                </picture>
                 <div class="poster-meta"><p class="eyebrow">TV</p><h3>Game of Thrones</h3></div>
               </article>
               <article class="poster">
-                <img src="media/final/interests/interstellar.jpg" alt="Interstellar inspired space artwork" width="600" height="900" loading="lazy">
+                <picture>
+                  <source srcset="media/final/interests/interstellar.avif" type="image/avif">
+                  <source srcset="media/final/interests/interstellar.webp" type="image/webp">
+                  <img src="media/final/interests/interstellar.webp" alt="Interstellar inspired space artwork" width="600" height="900" loading="lazy">
+                </picture>
                 <div class="poster-meta"><p class="eyebrow">Nolan</p><h3>Interstellar</h3></div>
               </article>
               <article class="poster">
-                <img src="media/final/interests/vinland.jpg" alt="Vinland Saga inspired northern sea artwork" width="600" height="900" loading="lazy">
+                <picture>
+                  <source srcset="media/final/interests/vinland.avif" type="image/avif">
+                  <source srcset="media/final/interests/vinland.webp" type="image/webp">
+                  <img src="media/final/interests/vinland.webp" alt="Vinland Saga inspired northern sea artwork" width="600" height="900" loading="lazy">
+                </picture>
                 <div class="poster-meta"><p class="eyebrow">Anime</p><h3>Vinland Saga</h3></div>
               </article>
               <article class="poster">
-                <img src="media/final/interests/aot.jpg" alt="Attack on Titan inspired colossal walls artwork" width="600" height="900" loading="lazy">
+                <picture>
+                  <source srcset="media/final/interests/aot.avif" type="image/avif">
+                  <source srcset="media/final/interests/aot.webp" type="image/webp">
+                  <img src="media/final/interests/aot.webp" alt="Attack on Titan inspired colossal walls artwork" width="600" height="900" loading="lazy">
+                </picture>
                 <div class="poster-meta"><p class="eyebrow">Anime</p><h3>Attack on Titan</h3></div>
               </article>
               <article class="poster wide">
-                <img src="media/final/interests/london-tech-week.jpg" alt="London Tech Week inspired London skyline and event atmosphere" width="1200" height="675" loading="lazy">
+                <picture>
+                  <source srcset="media/final/interests/london-tech-week.avif" type="image/avif">
+                  <source srcset="media/final/interests/london-tech-week.webp" type="image/webp">
+                  <img src="media/final/interests/london-tech-week.webp" alt="London Tech Week inspired London skyline and event atmosphere" width="1200" height="675" loading="lazy">
+                </picture>
                 <div class="poster-meta"><p class="eyebrow">Events</p><h3>London Tech Week</h3></div>
               </article>
             </div>
