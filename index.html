@@ -861,6 +861,21 @@
       color: var(--fg-mute);
       font-size: 0.82rem;
     }
+    .work-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin: 10px 0 0;
+      font-size: 0.9rem;
+    }
+    .work-links a {
+      color: var(--fg);
+      border-bottom: 1px solid var(--line-strong);
+      padding-bottom: 1px;
+    }
+    .work-links a:hover {
+      border-bottom-color: var(--fg);
+    }
     .work-item > p {
       margin: 0;
       max-width: 78ch;
@@ -2004,12 +2019,14 @@
               <div>
                 <h3>Multimodal backchannel prediction</h3>
                 <p class="work-meta"><span>MSc dissertation · University of Surrey (CVSSP)</span><span>Ongoing</span></p>
+                <p class="work-links">
+                  <a href="https://thelivingdead.github.io/multimodalbackchannelprediction/" target="_blank" rel="noreferrer">Live site →</a>
+                  <a href="https://github.com/thelivingdead/multimodalbackchannelprediction" target="_blank" rel="noreferrer">GitHub →</a>
+                </p>
               </div>
               <div class="work-result">
                 <strong>Ongoing</strong>
                 <span>Dissertation</span>
-                <a class="tag" href="https://thelivingdead.github.io/multimodalbackchannelprediction/" target="_blank" rel="noreferrer">Site →</a>
-                <a class="tag" href="https://github.com/thelivingdead/multimodalbackchannelprediction" target="_blank" rel="noreferrer">GitHub →</a>
               </div>
             </div>
             <p>Building an end to end multimodal AI system that predicts conversational backchannel behaviours such as head nods, gaze shifts and facial expressions. The model combines video, transcripts and FLAME facial representations from the RealTalk dataset. The pipeline covers data preparation, feature extraction, multimodal fusion, evaluation and large scale GPU experimentation.</p>
@@ -2017,7 +2034,7 @@
             <div class="work-flow" aria-label="Multimodal project pipeline">
               <span class="work-flow-step">RealTalk data</span>
               <span class="work-flow-arrow" aria-hidden="true">→</span>
-              <span class="work-flow-step">Video · Text · FLAME</span>
+              <span class="work-flow-step">Video · HuBERT · FLAME</span>
               <span class="work-flow-arrow" aria-hidden="true">→</span>
               <span class="work-flow-step">Multimodal fusion</span>
               <span class="work-flow-arrow" aria-hidden="true">→</span>
@@ -2026,7 +2043,7 @@
               <span class="work-flow-step">GPU evaluation</span>
             </div>
             <div class="tags">
-              <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">Transformers</span><span class="tag">VideoMAE</span><span class="tag">BERT</span><span class="tag">FLAME</span><span class="tag">Multimodal AI</span><span class="tag">Computer vision</span><span class="tag">HTCondor</span><span class="tag">Evaluation</span>
+              <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">Transformers</span><span class="tag">VideoMAE</span><span class="tag">HuBERT</span><span class="tag">FLAME</span><span class="tag">Multimodal AI</span><span class="tag">Computer vision</span><span class="tag">HTCondor</span><span class="tag">Evaluation</span>
             </div>
           </article>
 
