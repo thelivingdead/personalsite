@@ -2048,7 +2048,12 @@
                 <a class="tag" href="https://github.com/thelivingdead/multimodalbackchannelprediction" target="_blank" rel="noreferrer">GitHub →</a>
               </div>
             </div>
-            <p>Building an end to end multimodal AI system that predicts conversational backchannel behaviours such as head nods, gaze shifts and facial expressions. The model combines video, transcripts and FLAME facial representations from the RealTalk dataset. The pipeline covers data preparation, feature extraction, multimodal fusion, evaluation and large scale GPU experimentation.</p>
+            <p>Built an end to end multimodal AI system that predicts how listeners react in real conversation. Using the RealTalk dataset, I created a pipeline covering data preparation, hand annotated ground truth, feature extraction, GPU experiments and held out evaluation. The system compares 3D FLAME facial representations from EMOCA against VideoMAE video and HuBERT audio models to detect listener head nods and head shakes.
+
+The key finding was that simple head motion features beat large deep video and audio models, which performed no better than chance.
+<br>
+Future stretch goals
+Extend the system to gaze shifts and facial expressions, fuse video, audio and transcripts into one model, and use the predictions to drive realistic listener behaviour in AI avatars.</p>
             <p class="work-flow-note">Pipeline</p>
             <div class="work-flow" aria-label="Multimodal project pipeline">
               <span class="work-flow-step">RealTalk data</span>
