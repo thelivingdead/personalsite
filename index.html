@@ -864,6 +864,37 @@
       transition: background 0.35s ease;
     }
     .work-item:hover { background: color-mix(in srgb, var(--fg) 2.5%, transparent); }
+    .work-item.has-media {
+      grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+      gap: 22px 32px;
+      align-items: start;
+    }
+    .work-thumb {
+      display: block;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--fg) 4%, var(--bg));
+    }
+    .work-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s var(--ease);
+    }
+    .work-item:hover .work-thumb img { transform: scale(1.045); }
+    .work-body {
+      display: grid;
+      gap: 12px;
+      min-width: 0;
+    }
+    .has-media .work-top {
+      flex-wrap: nowrap;
+    }
+    .has-media .work-top > div:first-child {
+      min-width: 0;
+    }
     .work-top {
       display: flex;
       flex-wrap: wrap;
@@ -887,7 +918,8 @@
       color: var(--fg-mute);
       font-size: 0.82rem;
     }
-    .work-item > p {
+    .work-item > p,
+    .work-body > p {
       margin: 0;
       max-width: 78ch;
       color: var(--fg-dim);
@@ -1659,6 +1691,8 @@
       .work-principles { grid-template-columns: 1fr 1fr; }
       .work-top { flex-direction: column; align-items: flex-start; }
       .work-result { text-align: left; justify-items: start; }
+      .work-item.has-media { grid-template-columns: 1fr; }
+      .work-thumb { max-width: 420px; }
       .about-panel,
       .journey-3d {
         transform: none !important;
@@ -2035,7 +2069,11 @@
         </div>
 
         <div class="work-list">
-          <article class="work-item reveal">
+          <article class="work-item has-media reveal">
+            <a class="work-thumb" href="https://thelivingdead.github.io/multimodalbackchannelprediction/" target="_blank" rel="noreferrer">
+              <img src="media/final/projects/dissertation.webp" alt="Dissertation site for multimodal backchannel recognition" width="960" height="720">
+            </a>
+            <div class="work-body">
             <div class="work-top">
               <div>
                 <h3>Multimodal backchannel prediction</h3>
@@ -2070,9 +2108,14 @@ Extend the system to gaze shifts and facial expressions, fuse video, audio and t
             <div class="tags">
               <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">Transformers</span><span class="tag">VideoMAE</span><span class="tag">HuBERT</span><span class="tag">FLAME</span><span class="tag">Multimodal AI</span><span class="tag">Computer vision</span><span class="tag">HTCondor</span><span class="tag">Evaluation</span>
             </div>
+            </div>
           </article>
 
-          <article class="work-item reveal" style="--delay:.02s">
+          <article class="work-item has-media reveal" style="--delay:.02s">
+            <a class="work-thumb" href="https://fleekade.vercel.app" target="_blank" rel="noreferrer">
+              <img src="media/final/projects/fleekade.webp" alt="Fleekade arcade start screen" width="960" height="720">
+            </a>
+            <div class="work-body">
             <div class="work-top">
               <div>
                 <h3>Fleekade</h3>
@@ -2089,15 +2132,25 @@ Extend the system to gaze shifts and facial expressions, fuse video, audio and t
               <a class="tag" href="https://fleekade.vercel.app" target="_blank" rel="noreferrer">Live demo →</a>
               <span class="tag">Hackathon</span><span class="tag">Product</span><span class="tag">Interactive UI</span><span class="tag">Games</span><span class="tag">Commerce</span>
             </div>
+            </div>
           </article>
 
-          <article class="work-item reveal" style="--delay:.04s">
+          <article class="work-item has-media reveal" style="--delay:.04s">
+            <a class="work-thumb" href="https://github.com/charlieboxall/Group-PG03-Natural-Language-Processing" target="_blank" rel="noreferrer">
+              <img src="media/final/projects/nlp.webp" alt="Group PG03 natural language processing project" width="960" height="560">
+            </a>
+            <div class="work-body">
             <div class="work-top">
               <div>
                 <h3>Sarcasm classification across English varieties</h3>
                 <p class="work-meta"><span>NLP · LLMs</span></p>
               </div>
-              <div class="work-result"><strong>3</strong><span>Varieties tested</span></div>
+              <div class="work-result">
+                <strong>3</strong>
+                <span>Varieties tested</span>
+                <a class="tag" href="https://github.com/charlieboxall/Group-PG03-Natural-Language-Processing" target="_blank" rel="noreferrer">GitHub →</a>
+                <a class="tag" href="https://group-pg03-natural-language-processing.streamlit.app/" target="_blank" rel="noreferrer">App →</a>
+              </div>
             </div>
             <p>Sarcasm detectors trained on one variety of English often fail on others, and an accuracy score alone does not explain why. This project compared classical baselines, fine tuned mBERT and LoRA adapted LLMs on the BESSTIE benchmark across British, Australian and Indian English. LIME based error analysis was used to surface which words the models relied on when they failed.</p>
             <p class="work-flow-note">Approach</p>
@@ -2113,19 +2166,29 @@ Extend the system to gaze shifts and facial expressions, fuse video, audio and t
             <div class="tags">
               <span class="tag">Python</span><span class="tag">Transformers</span><span class="tag">mBERT</span><span class="tag">LoRA</span><span class="tag">LLMs</span><span class="tag">BESSTIE</span><span class="tag">LIME</span><span class="tag">NLP</span>
             </div>
+            </div>
           </article>
 
-          <article class="work-item reveal" style="--delay:.08s">
+          <article class="work-item has-media reveal" style="--delay:.08s">
+            <a class="work-thumb" href="https://github.com/dd00697/Action-Recognition-Using-Vision-Transformers" target="_blank" rel="noreferrer">
+              <img src="media/final/projects/action-recognition.webp" alt="Vision transformer action recognition on fencing clips" width="960" height="720">
+            </a>
+            <div class="work-body">
             <div class="work-top">
               <div>
                 <h3>Action recognition and spatio temporal localisation</h3>
                 <p class="work-meta"><span>Vision transformers</span><span>HMDB</span></p>
               </div>
-              <div class="work-result"><strong>91.49%</strong><span>Top-1 accuracy</span></div>
+              <div class="work-result">
+                <strong>91.49%</strong>
+                <span>Top-1 accuracy</span>
+                <a class="tag" href="https://github.com/dd00697/Action-Recognition-Using-Vision-Transformers" target="_blank" rel="noreferrer">GitHub →</a>
+              </div>
             </div>
             <p>Compared state of the art vision transformers including VideoMAE, TimeSformer and ViViT for video action understanding on HMDB. Extended the strongest model to spatio temporal action localisation, with controlled experiments on optimisation strategies and model performance.</p>
             <div class="tags">
               <span class="tag">VideoMAE</span><span class="tag">TimeSformer</span><span class="tag">ViViT</span><span class="tag">Vision transformers</span><span class="tag">PyTorch</span><span class="tag">Computer vision</span><span class="tag">Ablation studies</span>
+            </div>
             </div>
           </article>
 
